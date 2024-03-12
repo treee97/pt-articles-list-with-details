@@ -11,8 +11,8 @@ export const ArticleDetails = ({ post }: ArticleDetailsProps) => {
   const { title, body, id } = post;
 
   return (
-    <section className="w-1/2 p-8">
-      <div className="border border-red-500">
+    <section className="w-full p-8">
+      <div className="">
         <p>Post: {id}</p>
         <p>Title: {title}</p>
         <p>Body: {body}</p>
