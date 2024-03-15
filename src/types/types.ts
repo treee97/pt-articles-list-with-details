@@ -6,6 +6,7 @@ export interface IPost {
 }
 export interface ArticleCardPost extends IPost{
     onSelect: () => void;
+    isActive: boolean;
 }
 export interface ArticleListProps {
     onPostSelect: (post: IPost) => void;

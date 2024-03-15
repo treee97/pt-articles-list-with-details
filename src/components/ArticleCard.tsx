@@ -1,11 +1,21 @@
 import { ArticleCardPost } from "../types/types";
-export const ArticleCard = ({ title, id, onSelect }: ArticleCardPost) => {
+export const ArticleCard = ({
+  title,
+  id,
+  onSelect,
+  isActive,
+}: ArticleCardPost) => {
   return (
     <div
-      className="w-full min-h-28 hover:bg-gray-50 rounded-md p-2 cursor-pointer overflow-hidden overflow-y-auto"
+      className={`${
+        isActive ? "bg-blue-600" : ""
+      } w-full min-h-28 hover:bg-gray-50 border border-red-500 rounded-md p-2 cursor-pointer overflow-hidden overflow-y-auto`}
       onClick={onSelect}
     >
-      <p>ID: {id}</p>
+      <div className="flex justify-between">
+        <p>Article: {id}</p>
+        <p>Read :)</p>
+      </div>
       <p className="title">{title}</p>
     </div>
   );

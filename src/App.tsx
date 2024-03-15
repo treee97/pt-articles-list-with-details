@@ -23,7 +23,7 @@ function App() {
         {/* nota: este 24px sale del tamaño de lo que ocupa el header. esto es 100vh - header height.
         Inspeccionamos para ver cuánto mide. Esto no me parece muy práctico.  */}
         <ArticleList onPostSelect={handlePostSelect} />
-        <div className="border border-red-600 my-8" />
+        <div className="border border-red-600 my-8 hidden md:block" />
         <ArticleDetails post={selectedPost} />
       </div>
     </main>
