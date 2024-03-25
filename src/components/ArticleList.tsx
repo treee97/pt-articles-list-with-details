@@ -24,7 +24,7 @@ export const ArticleList = ({ onPostSelect }: ArticleListProps) => {
     setActive(post.id);
   };
   return (
-    <section className="w-full md:w-1/3 p-8 bg-red-300 overflow-y-auto max-h-screen">
+    <section className="w-full md:w-2/5 p-8 bg-red-300 overflow-y-auto max-h-screen">
       <h2 className="text-2xl font-bold">Articles</h2>
       <div className="flex gap-2 flex-col p-4">
         {posts ? (

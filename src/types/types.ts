@@ -10,6 +10,7 @@ export interface ArticleCardPost extends IPost{
 }
 export interface ArticleListProps {
     onPostSelect: (post: IPost) => void;
+    handleIsMobileModal: () => void;
   }
 
   export interface ArticleDetailsProps {
