@@ -8,9 +8,14 @@ import ModalArticleDetailsMobile from "./components/modalArticleDetailsMobile/Mo
 function App() {
   const [selectedPost, setSelectedPost] = useState<IPost | null>(null);
   const [isMobileModal, setIsMobileModal] = useState(false);
+
   const handlePostSelect = (post: IPost) => {
     setSelectedPost(post);
     setIsMobileModal(true);
+
+    if (!selectedPost) {
+      setIsMobileModal(false);
+    }
   };
   const handleIsMobileModal = () => {
     setIsMobileModal(!isMobileModal);
@@ -20,7 +25,7 @@ function App() {
     const handleResize = () => {
       if (selectedPost) {
         setIsMobileModal(window.innerWidth < 768);
-      }
+      } else return;
     };
     handleResize();
     window.addEventListener("resize", handleResize);

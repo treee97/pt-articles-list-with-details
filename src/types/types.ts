@@ -3,6 +3,7 @@ export interface IPost {
     id: number;
     title: string;
     body: string;
+    read: boolean;
 }
 export interface ArticleCardPost extends IPost{
     onSelect: () => void;
@@ -13,6 +14,6 @@ export interface ArticleListProps {
     handleIsMobileModal: () => void;
   }
 
-  export interface ArticleDetailsProps {
+export interface ArticleDetailsProps {
     post: IPost | null;
   }
