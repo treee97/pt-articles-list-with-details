@@ -1,38 +1,44 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { ArticleDetails } from "./components/ArticleDetails";
-import { ArticleList } from "./components/ArticleList";
+import { PostDetails } from "./components/PostDetails";
+import { PostList } from "./components/PostList";
 import { IPost } from "./types/types";
-import ModalArticleDetailsMobile from "./components/modalArticleDetailsMobile/ModalArticleDetailsMobile";
-
+import { ModalPostDetails } from "./components/modalArticleDetailsMobile/ModalPostDetails";
 function App() {
   const [selectedPost, setSelectedPost] = useState<IPost | null>(null);
-  const [isMobileModal, setIsMobileModal] = useState(false);
+  const [isMobileModal, setIsMobileModal] = useState<boolean>(
+    window.innerWidth < 768
+  );
 
   const handlePostSelect = (post: IPost) => {
     setSelectedPost(post);
-    setIsMobileModal(true);
 
-    if (!selectedPost) {
-      setIsMobileModal(false);
+    // Check if the window width is below the mobile threshold and a post is selected
+    if (window.innerWidth < 768 && post) {
+      setIsMobileModal(true);
     }
   };
   const handleIsMobileModal = () => {
     setIsMobileModal(!isMobileModal);
+    // Clear the selected post when the modal is closed
+    if (!isMobileModal) {
+      setSelectedPost(null);
+    }
   };
 
   useEffect(() => {
     const handleResize = () => {
-      if (selectedPost) {
-        setIsMobileModal(window.innerWidth < 768);
-      } else return;
+      setIsMobileModal(window.innerWidth < 768);
     };
+
     handleResize();
+
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [selectedPost]);
+  }, []);
 
   // >768
 
@@ -50,16 +56,14 @@ function App() {
       <main className="flex gap-5 max-h-[calc(100vh_-_28px)]">
         {/* nota: este 24px sale del tamaño de lo que ocupa el header. esto es 100vh - header height.
         Inspeccionamos para ver cuánto mide. Esto no me parece muy práctico.  */}
-        <ArticleList
+        <PostList
           onPostSelect={handlePostSelect}
           handleIsMobileModal={handleIsMobileModal}
         />
-        {isMobileModal ? (
-          <ModalArticleDetailsMobile
-            handleIsMobileModal={handleIsMobileModal}
-          />
+        {isMobileModal && selectedPost ? (
+          <ModalPostDetails handleIsMobileModal={handleIsMobileModal} />
         ) : (
-          <ArticleDetails post={selectedPost} />
+          <PostDetails post={selectedPost} />
         )}
       </main>
       {/*  */}

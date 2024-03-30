@@ -1,7 +1,7 @@
 interface IProps {
   handleIsMobileModal: () => void;
 }
-const ModalArticleDetailsMobile = ({ handleIsMobileModal }: IProps) => {
+export const ModalPostDetails = ({ handleIsMobileModal }: IProps) => {
   return (
     <div className="z-10 animate-fade-in inset-0 fixed bg-black/60 backdrop-blur-sm min-w-screen items-center flex justify-center">
       {/* modal background */}
@@ -14,5 +14,3 @@ const ModalArticleDetailsMobile = ({ handleIsMobileModal }: IProps) => {
     </div>
   );
 };
-
-export default ModalArticleDetailsMobile;

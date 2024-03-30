@@ -1,6 +1,6 @@
-import { ArticleDetailsProps } from "../types/types";
+import { PostDetailsProps } from "../types/types";
 
-const ArticleInfoCard = ({ post }: ArticleDetailsProps) => {
+const PostListCardInfo = ({ post }: PostDetailsProps) => {
   return (
     <div className="">
       <p>Post: {post?.id}</p>
@@ -10,4 +10,4 @@ const ArticleInfoCard = ({ post }: ArticleDetailsProps) => {
   );
 };
 
-export default ArticleInfoCard;
+export default PostListCardInfo;

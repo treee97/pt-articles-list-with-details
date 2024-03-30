@@ -1,10 +1,5 @@
-import { ArticleCardPost } from "../types/types";
-export const ArticleCard = ({
-  title,
-  id,
-  onSelect,
-  isActive,
-}: ArticleCardPost) => {
+import { PostCardProps } from "../types/types";
+export const PostCard = ({ title, id, onSelect, isActive }: PostCardProps) => {
   return (
     <div
       className={`${
