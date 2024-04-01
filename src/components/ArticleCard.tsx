@@ -18,7 +18,7 @@ export const ArticleCard = ({
         <p>Read :)</p> <p>Read :)</p> <p>Read :)</p> <p>Read :)</p>{" "}
         <p>Read :)</p> <p>Read :)</p>
         java.lang.IllegalStateException: The plugin [python] does not support
-        Java 11.0.14
+        Java 11.0.14 i have java 17 tho
       </div>
       <p className="title">{title}</p>
     </div>
