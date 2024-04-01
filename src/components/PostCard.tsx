@@ -9,7 +9,7 @@ export const PostCard = ({ title, id, onSelect, isActive }: PostCardProps) => {
     >
       <div className="flex justify-between">
         <p>Article: {id}</p>
-        <p>Read :) delete sonar cloud</p>
+        <p>Read :)</p>
       </div>
       <p className="title">{title}</p>
     </button>
