@@ -3,15 +3,17 @@ export interface IPost {
     id: number;
     title: string;
     body: string;
+    read: boolean;
 }
-export interface ArticleCardPost extends IPost{
+export interface PostCardProps extends IPost{
     onSelect: () => void;
     isActive: boolean;
 }
-export interface ArticleListProps {
+export interface PostListProps {
     onPostSelect: (post: IPost) => void;
+    handleIsMobileModal: () => void;
   }
 
-  export interface ArticleDetailsProps {
+export interface PostDetailsProps {
     post: IPost | null;
   }

@@ -1,12 +1,7 @@
-import { ArticleCardPost } from "../types/types";
-export const ArticleCard = ({
-  title,
-  id,
-  onSelect,
-  isActive,
-}: ArticleCardPost) => {
+import { PostCardProps } from "../types/types";
+export const PostCard = ({ title, id, onSelect, isActive }: PostCardProps) => {
   return (
-    <div
+    <button
       className={`${
         isActive ? "bg-blue-600" : ""
       } w-full min-h-28 hover:bg-gray-50 border border-red-500 rounded-md p-2 cursor-pointer overflow-hidden overflow-y-auto`}
@@ -14,9 +9,9 @@ export const ArticleCard = ({
     >
       <div className="flex justify-between">
         <p>Article: {id}</p>
-        <p>Read :) delete sonar cloud</p>
+        <p>Read :)</p>
       </div>
       <p className="title">{title}</p>
-    </div>
+    </button>
   );
 };

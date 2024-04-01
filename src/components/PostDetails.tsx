@@ -1,7 +1,7 @@
-import { ArticleDetailsProps } from "../types/types";
-import ArticleInfoCard from "./ArticleInfoCard";
+import { PostDetailsProps } from "../types/types";
+import PostListCardInfo from "./PostListCardInfo";
 
-export const ArticleDetails = ({ post }: ArticleDetailsProps) => {
+export const PostDetails = ({ post }: PostDetailsProps) => {
   if (!post) {
     return (
       <section className="hidden w-full p-8 md:flex items-center justify-center">
@@ -12,7 +12,7 @@ export const ArticleDetails = ({ post }: ArticleDetailsProps) => {
 
   return (
     <section className="hidden md:block w-full p-8">
-      <ArticleInfoCard post={post} />
+      <PostListCardInfo post={post} />
     </section>
   );
 };

@@ -1,19 +1,19 @@
-import { ArticleCard } from "./ArticleCard";
+import { PostCard } from "./PostCard";
 import { fetchPosts } from "../api/fetchPosts";
 import { useState, useEffect } from "react";
-import { ArticleListProps, IPost } from "../types/types";
+import { PostListProps, IPost } from "../types/types";
 
-export const ArticleList = ({ onPostSelect }: ArticleListProps) => {
-  const [posts, seIPosts] = useState<IPost[]>();
+export const PostList = ({ onPostSelect }: PostListProps) => {
+  const [posts, setPosts] = useState<IPost[]>();
   const [active, setActive] = useState<number | null>(null);
 
   useEffect(() => {
     const postsListData = async () => {
       try {
         const postsData = await fetchPosts();
-        seIPosts(postsData);
+        setPosts(postsData);
       } catch (error) {
-        console.log("Error fetching it bro => ", error);
+        console.log("Error fetching articles: ", error);
       }
     };
     postsListData();
@@ -23,13 +23,14 @@ export const ArticleList = ({ onPostSelect }: ArticleListProps) => {
     onPostSelect(post);
     setActive(post.id);
   };
+
   return (
-    <section className="w-full md:w-1/3 p-8 bg-red-300 overflow-y-auto max-h-screen">
+    <section className="w-full md:w-2/5 p-8 bg-red-300 overflow-y-auto max-h-screen">
       <h2 className="text-2xl font-bold">Articles</h2>
       <div className="flex gap-2 flex-col p-4">
         {posts ? (
           posts.map((post) => (
-            <ArticleCard
+            <PostCard
               key={post.id}
               {...post}
               onSelect={() => handlePostSelect(post)}
