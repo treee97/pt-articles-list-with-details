@@ -14,7 +14,7 @@ export const ArticleCard = ({
     >
       <div className="flex justify-between">
         <p>Article: {id}</p>
-        <p>Read :)</p>
+        <p>Read :) delete sonar cloud</p>
       </div>
       <p className="title">{title}</p>
     </div>
