@@ -13,14 +13,12 @@ function App() {
   const handlePostSelect = (post: IPost) => {
     setSelectedPost(post);
 
-    // Check if the window width is below the mobile threshold and a post is selected
     if (window.innerWidth < 768 && post) {
       setIsMobileModal(true);
     }
   };
   const handleIsMobileModal = () => {
     setIsMobileModal(!isMobileModal);
-    // Clear the selected post when the modal is closed
     if (!isMobileModal) {
       setSelectedPost(null);
     }
@@ -54,8 +52,7 @@ function App() {
       </header>
       {/* main section */}
       <main className="flex gap-5 max-h-[calc(100vh_-_28px)]">
-        {/* nota: este 24px sale del tamaño de lo que ocupa el header. esto es 100vh - header height.
-        Inspeccionamos para ver cuánto mide. Esto no me parece muy práctico.  */}
+        {/* nota: este 24px sale del tamaño de lo que ocupa el header. esto es 100vh - header height.*/}
         <PostList
           onPostSelect={handlePostSelect}
           handleIsMobileModal={handleIsMobileModal}
